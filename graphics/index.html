@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<title>Zogi :: Computer graphics projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/brands.css" integrity="sha384-VGCZwiSnlHXYDojsRqeMn3IVvdzTx5JEuHgqZ3bYLCLUBV8rvihHApoA1Aso2TZA" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/solid.css" integrity="sha384-Rw5qeepMFvJVEZdSo1nDQD5B6wX0m7c5Z/pLNvjkB14W6Yki1hKbSEQaX9ffUbWe" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.VideoAspect {
+    position: relative; width: 100%; height: 0; padding-bottom: 53.125%
+}
+.VideoAspect iframe {
+    position: absolute; width: 100%; height: 100%; left: 0; top: 0
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>Computer graphics projects</b></h1>
+</header>
+
+<div class="w3-row">
+
+<!-- Projects -->
+<div class="w3-col l8 s12">
+
+  <!-- Voxel-style fluid sim -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="VideoAspect">
+      <iframe src="https://drive.google.com/file/d/1_K_nNOPKTjErL8GZ2t5qMijA1rBk1PEG/preview" allowfullscreen></iframe>
+    </div>
+    <div class="w3-padding">
+    <div class="w3-container">
+      <h3><b>Voxel-style fluid simulation</b></h3>
+      <h5>Real-time Eulerian fluid simulation with voxelized style.</h5>
+    </div>
+
+    <div class="w3-container">
+      <p>This is a low-res Eulerian fluid simulation experiment I made in my free time mainly out of curiosity and
+        because I love Minecraft.
+        The fluid simulation uses <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a>'s sparse
+        conjugate gradient solver for pressure projection and a basic semi-Lagrangian method for advection.
+        The voxels are rendered by tracing through a 3D density texture using DDA-style traversal computing the
+        effect of volume absorption and reflection at air-fluid interfaces.
+        Emtpy-space skipping and hierarchical data storage schemes are not implemented at this point.
+      </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p>
+          <a href="https://github.com/zogi/voxel-fluid" class="w3-button w3-padding-large w3-white w3-border"><b>Code</b></a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- OpenVDB -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="VideoAspect">
+      <iframe src="https://drive.google.com/file/d/0Byp67-VQQtr2RE5CcHl0Z0E0Yms/preview" allowfullscreen></iframe>
+    </div>
+    <div class="w3-padding">
+    <div class="w3-container">
+      <h3><b>OpenVDB visualization</b></h3>
+      <h5>Physically-based OpenVDB volume rendering in the Maya viewport.</h5>
+    </div>
+
+    <div class="w3-container">
+      <p>This project introduces a new display mode to the open-source Maya plugin
+        <a href="https://github.com/LumaPictures/openvdb-render">openvdb-render</a>.
+        The new mode renders transparent slices of a VDB volume to approximate
+        the Arnold 5 standard volume shader using single-scattering equations.
+      </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p>
+          <a href="https://github.com/LumaPictures/openvdb-render/pull/1" class="w3-button w3-padding-large w3-white w3-border"><b>Code</b></a>
+          <a href="https://drive.google.com/open?id=1SM0uWcXK4NwORUfSkeIVxAbCzuiiYQeu" class="w3-button w3-padding-large w3-white w3-border"><b>Slide deck</b></a>
+          <a href="vdb.html" class="w3-button w3-padding-large w3-white w3-border"><b>More videos</b></a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Ocean demo -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="VideoAspect">
+      <iframe src="https://drive.google.com/file/d/1SMQ5seecDvcA-d0xZVuBIdwMmNnpwb6G/preview" allowfullscreen></iframe>
+    </div>
+    <div class="w3-padding">
+    <div class="w3-container">
+      <h3><b>Ocean surface animation</b></h3>
+      <h5>Animation and rendering of Tessendorf waves.</h5>
+    </div>
+
+    <div class="w3-container">
+      <p>
+        This demo I built as a hobby project renders a shaded ocean surface generated using the Tessendorf FFT method.
+        The ocean surface extends to the horizon, which is achieved by projecting a screen-space grid onto the ocean plane.
+        The projected grid points are then modified by the generated displacement map.
+        This demo uses clFFT, so FFT computation runs on the GPU.
+      </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p>
+          <a href="http://github.com/zogi/ocean_demo" class="w3-button w3-padding-large w3-white w3-border"><b>Code</b></a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <hr>
+
+</div>
+
+<div class="w3-col l4">
+  <div class="w3-card w3-margin w3-margin-top">
+    <div class="w3-container w3-white w3-padding">
+      <h4><b>Zoltán Gilián</b></h4>
+      <h5>CG Development Unit Lead at Digic Pictures.</h5>
+      <p>Computer graphics enthusiast.<br/>Enjoys programming, math, games and coffee.</p>
+      <div class="w3-xlarge">
+        <a href="mailto:zoltan.gilian@gmail.com"><i class="fas fa-envelope-square w3-hover-opacity"></i></a>
+        <a href="https://www.linkedin.com/in/zoltán-gilián-65376751"><i class="fab fa-linkedin w3-hover-opacity"></i></a>
+        <a href="https://www.github.com/zogi"><i class="fab fa-github-square w3-hover-opacity"></i></a>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+
+</div><br>
+
+</div>
+
+<footer class="w3-container w3-dark-grey w3-margin-top">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>
+
+<!-- vim: set expandtab ts=2 sw=2: -->
